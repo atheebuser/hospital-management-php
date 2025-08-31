@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services </title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+ 
+    <a href="#" class="logo"> <img src="./img/New Arogya Icon Without BC.png" alt=""> CARE COMPASS HOSPITAL</a>
+
+
+
+    <!--  search bar -->
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search..." onkeyup="showSuggestions()">
+        <span class="search-icon" onclick="toggleSearch()">🔍</span>
+        <div id="suggestions" class="suggestions-box"></div>
+    </div>
+  
+  <style>
+    .search-container {
+        position: relative;
+        width: 300px;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        border: 2px solid #2ddaf8;
+        border-radius: 25px;
+        padding: 5px;
+    }
+    #search {
+        flex: 1;
+        padding: 8px;
+        border: none;
+        outline: none;
+        transition: width 0.3s ease-in-out;
+    }
+    .search-icon {
+        cursor: pointer;
+        padding: 5px;
+        transition: color 0.3s;
+    }
+    .search-icon:hover {
+        color: blue;
+    }
+    .suggestions-box {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: none;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    .suggestion {
+        padding: 8px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+    }
+    .suggestion:hover {
+        background: #ffffff;
+    }
+    @media (max-width: 600px) {
+        .search-container {
+            width: auto;
+            border: none;
+            padding: 0;
+        }
+        #search {
+            width: 0;
+            padding: 0;
+            border: none;
+            visibility: hidden;
+        }
+        .search-container.active #search {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            visibility: visible;
+        }
+    }
+  </style>
+  
+  <script>
+    const suggestionsList = [
+        { name: "Services", url: "services.html" },
+        { name: "Doctors", url: "doctors.html" },
+        { name: "About Us", url: "aboutus.html" },
+        { name: "Reviews", url: "reviews.html" },
+        { name: "contacus", url: "query.html" },
+        {name: "labservices", url:"labservices.html"},
+        {name:"branches",url:"branches.html"}
+    ];
+  
+    function showSuggestions() {
+        let input = document.getElementById("search").value.toLowerCase();
+        let suggestionsBox = document.getElementById("suggestions");
+        
+        if (input === "") {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+        
+        let filteredSuggestions = suggestionsList.filter(item => 
+            item.name.toLowerCase().includes(input)
+        );
+        
+        if (filteredSuggestions.length === 0) {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+        
+        suggestionsBox.innerHTML = "";
+        filteredSuggestions.forEach(item => {
+            let div = document.createElement("div");
+            div.classList.add("suggestion");
+            div.innerText = item.name;
+            div.onclick = () => window.location.href = item.url;
+            suggestionsBox.appendChild(div);
+        });
+        
+        suggestionsBox.style.display = "block";
+    }
+  
+    function toggleSearch() {
+        document.querySelector(".search-container").classList.toggle("active");
+    }
+  </script>
+  
+
+  <nav class="navbar">
+    <nav class="navbar">
+        <a href="index.html">home</a>
+    
+        <!-- First select menu -->
+        <select id="menu" onchange="navigateToPage('menu')">
+            <option value="services.html">Services</option>
+            <option value="services.html">Our Services</option>
+            <option value="labservices.html">Lab Services</option>
+            <option value="branches.html">Our Branches</option>
+        </select>
+    
+        <a href="Doctors.html">doctors</a>
+        <a href="Aboutus.html">about</a>
+        <a href="review.html">review</a>
+    
+        <!-- Second select menu -->
+        <select id="menuu" onchange="navigateToPage('menuu')">
+            <option value="login.php">Login Option</option>
+            <option value="login.php">Login</option>
+            <option value="signupp.php">SignUp</option>
+        </select>
+    
+        <a href="query.html">ContactUs</a>
+    </nav>
+    
+    <script>
+        function navigateToPage(menuId) {
+            var select = document.getElementById(menuId);
+            var selectedValue = select.value;
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        }
+    </script>
+    
+        
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+
+
+<!-- services section starts  -->
+
+<section class="services" id="services"><br><br><br><br><br><br><br><br>
+
+    <h1 class="heading"> our <span>services</span> </h1><br><br><br><br>
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-notes-medical"></i>
+            <h3>free checkups</h3>
+
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-ambulance"></i>
+            <h3>24/7 ambulance</h3>
+
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-user-md"></i>
+            <h3>expert doctors</h3>
+
+           
+        </div>
+
+        <div class="box">
+            <i class="fas fa-notes-medical"></i>
+            <h3>Emergency room service</h3>
+
+            
+        </div>
+
+
+
+    </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/dental.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Dental Care</h3>
+            <p>Our service philosophy is built on the precepts of commitment to clinical protocols, provision of compassionate care and service excellence that transcends the conventional healthcare offer. Recognising that service excellence is dynamic in nature, we continuously seek to enhance our service delivery in a bid to provide you – our customers – with world-class healthcare experiences.</p>
+            <p>This drive for excellence has seen us claim many “firsts” in the industry in both clinical as well non-clinical areas. As a firm believer that excellence in healthcare is a combination of excellence in clinical and non-clinical care,</p>
+           
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/massage-therapist.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Message Therapy</h3>
+            <p>A trained, certified medical professional (massage therapist) manipulates the soft tissues of your body — muscle, connective tissue, tendons, ligaments and skin. The massage therapist uses varying degrees of pressure and movement.</p>
+            <p>Massage is generally considered part of integrative medicine. Medical centers are offering it more and more as a treatment along with standard treatment.</p>
+           
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/cardiology-cath-lab.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Cardiology</h3>
+           <p>All cardiologists study the disorders of the heart, but the study of adult and child heart disorders are through different training pathways. Therefore, an adult cardiologist (often simply called "cardiologist") is inadequately trained to take care of children, and pediatric cardiologists are not trained to take care of adult heart disease. The surgical aspects are not included in cardiology and are in the domain of cardiothoracic surgery. For example, coronary artery bypass surgery (CABG), cardiopulmonary bypass and valve replacement are surgical procedures performed by surgeons, not cardiologists. However, the insertion of stents and pacemakers is performed by cardiologists</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/diagnosis.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>diagnosis</h3>
+            <p>the art or act of identifying a disease from its signs and symptoms. b : the decision reached by diagnosis the doctor's diagnosis. 2a : investigation or analysis of the cause or nature of a condition, situation, or problem diagnosis of engine trouble. b : a statement or conclusion from such an analysis.</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/ambula.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Ambulance Service</h3>
+            <p>Ambulance services are available from leading hospitals and private service providers 24/7. They respond to urgent calls and are well equipped to handle medical emergencies on board. Trained medical officers and Doctors are available and some of these services offer subscription packages in advance.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- services section ends -->
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> services </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> doctors </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> about </a>
+             <a href="#"> <i class="fas fa-chevron-right"></i> review </a>
+         
+        </div>
+
+        <div class="box">
+            <h3>our services</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> dental care </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> message therapy </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> cardioloty </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> diagnosis </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> ambulance service </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-envelope"></i> Arogya@gmail.com </a>
+            <a href="#"> <i class="fas fa-envelope"></i> healthcare@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Colombo, Sri lanka - 400104 </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+        
+       
+    </div>
+
+    <div class="credit"> created by <span>CARE COMPASS web team</span> | all rights reserved @2025 </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/rstyle.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+ 
+    <a href="#" class="logo"> <img src="./img/New Arogya Icon Without BC.png" alt=""> CARE COMPASS HOSPITAL</a>
+
+    <!--  search bar -->
+<div class="search-container">
+    <input type="text" id="search" placeholder="Search..." onkeyup="showSuggestions()">
+    <span class="search-icon" onclick="toggleSearch()">🔍</span>
+    <div id="suggestions" class="suggestions-box"></div>
+  </div>
+  
+  <style>
+    .search-container {
+        position: relative;
+        width: 300px;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        border: 2px solid #2ddaf8;
+        border-radius: 25px;
+        padding: 5px;
+    }
+    #search {
+        flex: 1;
+        padding: 8px;
+        border: none;
+        outline: none;
+        transition: width 0.3s ease-in-out;
+    }
+    .search-icon {
+        cursor: pointer;
+        padding: 5px;
+        transition: color 0.3s;
+    }
+    .search-icon:hover {
+        color: blue;
+    }
+    .suggestions-box {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: none;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    .suggestion {
+        padding: 8px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+    }
+    .suggestion:hover {
+        background: #ffffff;
+    }
+    @media (max-width: 600px) {
+        .search-container {
+            width: auto;
+            border: none;
+            padding: 0;
+        }
+        #search {
+            width: 0;
+            padding: 0;
+            border: none;
+            visibility: hidden;
+        }
+        .search-container.active #search {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            visibility: visible;
+        }
+    }
+  </style>
+  
+  <script>
+    const suggestionsList = [
+        { name: "Services", url: "services.html" },
+        { name: "Doctors", url: "doctors.html" },
+        { name: "About Us", url: "aboutus.html" },
+        { name: "Reviews", url: "reviews.html" },
+        { name: "contacus", url: "query.html" },
+        {name: "labservices", url:"labservices.html"},
+        {name: "branches", url:"branches.html"} 
+    ];
+  
+    function showSuggestions() {
+        let input = document.getElementById("search").value.toLowerCase();
+        let suggestionsBox = document.getElementById("suggestions");
+        
+        if (input === "") {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+        
+        let filteredSuggestions = suggestionsList.filter(item => 
+            item.name.toLowerCase().includes(input)
+        );
+        
+        if (filteredSuggestions.length === 0) {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+        
+        suggestionsBox.innerHTML = "";
+        filteredSuggestions.forEach(item => {
+            let div = document.createElement("div");
+            div.classList.add("suggestion");
+            div.innerText = item.name;
+            div.onclick = () => window.location.href = item.url;
+            suggestionsBox.appendChild(div);
+        });
+        
+        suggestionsBox.style.display = "block";
+    }
+  
+    function toggleSearch() {
+        document.querySelector(".search-container").classList.toggle("active");
+    }
+  </script>
+
+    <nav class="navbar">
+        <a href="index.html">home</a>
+         <!-- First select menu -->
+         <select id="menu" onchange="navigateToPage('menu')">
+            <option value="services.html">Services</option>
+            <option value="services.html">Our Services</option>
+            <option value="labservices.html">Lab Services</option>
+            <option value="branches.html">Branches</option>
+        </select>
+        
+      
+        <a href="Doctors.html">doctors</a>
+        <a href="Aboutus.html">about</a>
+        <a href="#"><b>Review</b></a>
+        
+        <!-- Second select menu -->
+        <select id="menuu" onchange="navigateToPage('menuu')">
+            <option value="login.php">Login Option</option>
+            <option value="login.php">Login</option>
+            <option value="signupp.php">SignUp</option>
+        </select>
+        
+        
+          <a href="query.html">ContactUs</a>
+       
+    </nav>
+    <script>
+        function navigateToPage(menuId) {
+            var select = document.getElementById(menuId);
+            var selectedValue = select.value;
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        }
+    </script>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+
+
+<!-- review section starts  -->
+
+<section class="review" id="review"><br><br><br><br><br><br><br><br>
+    
+    <h1 class="heading"> client's <span>reviews</span> </h1><br><br><br><br>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="img/care.jpg" alt="">
+            <h3>Ishara Fernando</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">"From the moment I walked into the clinic, I felt welcomed and cared for. The staff was incredibly friendly, and Dr. Ethan Matthews took the time to listen to all my concerns. He explained everything clearly, and I never felt rushed. I truly appreciate the professionalism and warmth of the entire team. Highly recommend!"</p>
+        </div>
+
+        <div class="box">
+            <img src="img/patre.jpg" alt="">
+            <h3>Sanjeewa Bandara</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">"I had been struggling with chronic back pain for years, and after visiting Dr. Olivia Carter, my life has completely changed. She provided a thorough diagnosis and designed a treatment plan that worked wonders. I feel like I have my life back again, and I can finally enjoy daily activities without discomfort. Thank you so much!"</p>
+        </div>
+
+        <div class="box">
+            <img src="img/pat.jpg" alt="">
+            <h3>Piumi Dissanayake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">"Dr. Nathan Reynolds and his team were outstanding. He treated me with so much kindness and respect. He explained my condition in a way that was easy to understand and made sure I was comfortable throughout my treatment. I couldn’t have asked for a better experience. Definitely a five-star service!"
+
+            </p>
+        </div>
+
+        
+        <div class="box">
+            <img src="img/pat22.jpg" alt="">
+            <h3>Tharusha Lakshan</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">"I was nervous about my surgery, but Dr. Sophia Bennett reassured me every step of the way. The procedure went smoothly, and my recovery was quicker than expected. She truly cares about her patients and follows up to make sure everything is going well. I am beyond grateful for her expertise!"
+
+            </p>
+        </div>
+
+        
+        <div class="box">
+            <img src="img/pat23.jpg" alt="">
+            <h3>Nadeera Rajapaksha</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">"Finding a good doctor for my child was a challenge until we met Dr. Ryan Thompson. He is incredibly patient and knows how to make kids feel at ease. My son actually looks forward to his checkups now! The staff is also very caring, making the entire visit stress-free for both parents and children."
+
+            </p>
+        </div>
+
+        
+        <div class="box">
+            <img src="img/pat24.jpg" alt="">
+            <h3>Imesh Mihiranga</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">"I was admitted for a minor procedure, and I was blown away by the level of care I received. The nurses were attentive, the facilities were clean and comfortable, and Dr. Emily Parker ensured I felt safe and informed at every stage. I left feeling healthier and reassured. Highly recommend this hospital!"
+
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="img/pat25.jpg" alt="">
+            <h3>Mohamed Amal</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">"I had an amazing experience at this hospital. Dr. Harsha Wijesinghe was very thorough and took the time to explain everything clearly. The nurses were kind and attentive, making sure I was comfortable throughout my stay. I truly appreciate the excellent care I received. Highly recommended!"
+
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="img/pat26.jpg" alt="">
+            <h3>Mohamed Munshak</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">"From booking my appointment to getting my test results, everything was smooth and well-organized. Dr. Kavindi Perera was extremely knowledgeable and kind. She answered all my questions patiently and reassured me about my treatment. I am grateful for such a stress-free and positive experience!"
+
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> services </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> doctors </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> about </a>
+             <a href="#"> <i class="fas fa-chevron-right"></i> review </a>
+         
+        </div>
+
+        <div class="box">
+            <h3>our services</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> dental care </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> message therapy </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> cardioloty </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> diagnosis </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> ambulance service </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-envelope"></i> Arogya@gmail.com </a>
+            <a href="#"> <i class="fas fa-envelope"></i> healthcare@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Colombo, Sri lanka - 400104 </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>CARE COMPASS web team</span> | all rights reserved @2025 </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

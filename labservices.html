@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services </title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+ 
+    <a href="#" class="logo"> <img src="./img/New Arogya Icon Without BC.png" alt=""> CARE COMPASS HOSPITAL</a>
+
+    <!-- search bar -->
+<div class="search-container">
+    <input type="text" id="search" placeholder="Search..." onkeyup="showSuggestions()">
+    <span class="search-icon" onclick="toggleSearch()">🔍</span>
+    <div id="suggestions" class="suggestions-box"></div>
+  </div>
+  
+  <style>
+    .search-container {
+        position: relative;
+        width: 300px;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        border: 2px solid #2ddaf8;
+        border-radius: 25px;
+        padding: 5px;
+    }
+    #search {
+        flex: 1;
+        padding: 8px;
+        border: none;
+        outline: none;
+        transition: width 0.3s ease-in-out;
+    }
+    .search-icon {
+        cursor: pointer;
+        padding: 5px;
+        transition: color 0.3s;
+    }
+    .search-icon:hover {
+        color: blue;
+    }
+    .suggestions-box {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: none;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    .suggestion {
+        padding: 8px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+    }
+    .suggestion:hover {
+        background: #ffffff;
+    }
+    @media (max-width: 600px) {
+        .search-container {
+            width: auto;
+            border: none;
+            padding: 0;
+        }
+        #search {
+            width: 0;
+            padding: 0;
+            border: none;
+            visibility: hidden;
+        }
+        .search-container.active #search {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            visibility: visible;
+        }
+    }
+  </style>
+  
+  <script>
+    const suggestionsList = [
+        { name: "Services", url: "services.html" },
+        { name: "Doctors", url: "doctors.html" },
+        { name: "About Us", url: "aboutus.html" },
+        { name: "Reviews", url: "reviews.html" },
+        { name: "contacus", url: "query.html" },
+        {name: "labservices", url:"labservices.html"},
+        {name:"branches",url:"branches.html"}
+    ];
+  
+    function showSuggestions() {
+        let input = document.getElementById("search").value.toLowerCase();
+        let suggestionsBox = document.getElementById("suggestions");
+        
+        if (input === "") {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+        
+        let filteredSuggestions = suggestionsList.filter(item => 
+            item.name.toLowerCase().includes(input)
+        );
+        
+        if (filteredSuggestions.length === 0) {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+        
+        suggestionsBox.innerHTML = "";
+        filteredSuggestions.forEach(item => {
+            let div = document.createElement("div");
+            div.classList.add("suggestion");
+            div.innerText = item.name;
+            div.onclick = () => window.location.href = item.url;
+            suggestionsBox.appendChild(div);
+        });
+        
+        suggestionsBox.style.display = "block";
+    }
+  
+    function toggleSearch() {
+        document.querySelector(".search-container").classList.toggle("active");
+    }
+  </script>
+
+    <nav class="navbar">
+        <a href="index.html">home</a>
+        <!-- First select menu -->
+        <select id="menu" onchange="navigateToPage('menu')">
+            <option value="services.html">Services</option>
+            <option value="services.html">Our Services</option>
+            <option value="labservices.html">Lab Services</option>
+            <option value="branches.html">Our Branches</option>
+        </select>
+        
+        
+        <a href="Doctors.html">doctors</a>
+        <a href="Aboutus.html">about</a>
+        <a href="review.html">review</a>
+
+        <!-- Second select menu -->
+        <select id="menuu" onchange="navigateToPage('menuu')">
+            <option value="login.php">Login Option</option>
+            <option value="login.php">Login</option>
+            <option value="signupp.php">SignUp</option>
+        </select>
+      
+        <script>
+            function navigateToPage(menuId) {
+                var select = document.getElementById(menuId);
+                var selectedValue = select.value;
+                if (selectedValue) {
+                    window.location.href = selectedValue;
+                }
+            }
+        </script>
+        <a href="query.html">ContactUs</a>
+        
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+
+
+<!-- services section starts  -->
+
+<section class="services" id="services"><br><br><br><br><br><br><br><br>
+
+    <h1 class="heading"> Laboratory <span>services</span> </h1><br><br><br><br>
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-notes-medical"></i>
+            <h3>Blood Tests</h3>
+
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-notes-medical"></i>
+            <h3>Radiology Support</h3>
+
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-user-md"></i>
+            <h3>CT scan</h3>
+
+           
+        </div>
+
+        <div class="box">
+            <i class="fas fa-notes-medical"></i>
+            <h3>Pregnancery Tests</h3>
+
+            
+        </div>
+
+
+
+    </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/blood.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Blood Tests</h3>
+            <p>Hospital laboratories provide a wide range of blood tests to diagnose and monitor various health conditions. These tests help doctors assess organ function, detect infections, and identify diseases such as diabetes, anemia, and high cholesterol. Common blood tests include complete blood count (CBC), blood glucose tests, liver and kidney function tests, and lipid profiles.</p>
+            <p>Blood samples are collected by trained professionals and analyzed using advanced medical equipment to ensure accurate and timely results. Regular blood testing plays a crucial role in preventive healthcare, enabling early detection and effective management of illnesses.</p>
+           
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/xray.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Radiology Support</h3>
+            <p>Radiology support is an essential part of hospital laboratory services, providing imaging techniques to assist in diagnosing and treating medical conditions. This includes X-rays, ultrasounds, and MRI scans, which help doctors visualize internal structures such as bones, organs, and tissues. Radiology plays a critical role in detecting fractures, tumors, infections, and internal injuries.</p>
+            <p>Advanced imaging technologies ensure high-resolution images, improving diagnostic accuracy and guiding treatment plans. Many hospitals integrate radiology with lab services to provide a comprehensive approach to patient care.</p>
+           
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/ctscan.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>CT scan</h3>
+           <p>A Computed Tomography (CT) scan is a specialized imaging procedure that combines multiple X-ray images to create detailed cross-sectional views of the body. CT scans are commonly used to detect tumors, internal injuries, infections, and abnormalities in organs such as the brain, lungs, and abdomen. Hospitals utilize modern CT scanning technology to provide fast and precise results, aiding in emergency and routine medical care. This non-invasive procedure helps doctors diagnose conditions more accurately and plan appropriate treatments for patients.</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/baby.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Pregnancery Tests</h3>
+            <p>Hospital labs offer pregnancy tests to confirm whether a woman is expecting. These tests detect the presence of human chorionic gonadotropin (hCG), a hormone produced during pregnancy, either in urine or blood samples. Blood tests for pregnancy provide more precise results and can detect pregnancy earlier than home test kits. Additionally, hospitals may offer further evaluations such as ultrasound scans to monitor fetal development. Pregnancy tests are an important service for women’s healthcare, ensuring timely medical advice and support for expectant mothers.
+
+
+
+
+
+
+
+            </p>
+        </div>
+
+    </div>
+
+    </div>
+
+</section>
+
+<section class="data" id="data">
+    <h1 class="heading">Why Choose Our Laboratory?</h1><br>
+
+    <ul>
+        <li>Advanced Technology: We utilize cutting-edge equipment and adhere to the latest medical standards to ensure fast, accurate results.</li><br>
+        <li>Expert Staff: Our team of experienced professionals is dedicated to providing the highest quality care and service to our patients.</li><br>
+        <li>Convenient Locations: We have multiple locations throughout the area, making it easy for you to access our services.</li><br>
+        <li>Quick Turnaround: We understand the importance of timely diagnosis and strive to provide fast processing of test results.</li><br>
+        <li>Confidentiality & Accuracy: We prioritize patient privacy and ensure that all tests are performed and processed with the highest degree of accuracy and confidentiality.</li><br>
+    </ul>
+</section>
+
+<section class="data" id="data">
+    <h1 class="heading">Contact Us</h1><br>
+    <ul>
+    <li>If you have any questions regarding lab tests, appointments, or reports, feel free to reach out to our Lab Services Team at <a href="query.html">Contact Us</a>.</li><br>
+    <li>We are here to support your health every step of the way.</li><br>
+</ul>
+</section>
+
+
+<!-- services section ends -->
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> services </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> doctors </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> about </a>
+             <a href="#"> <i class="fas fa-chevron-right"></i> review </a>
+         
+        </div>
+
+        <div class="box">
+            <h3>our services</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> dental care </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> message therapy </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> cardioloty </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> diagnosis </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> ambulance service </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-envelope"></i> Arogya@gmail.com </a>
+            <a href="#"> <i class="fas fa-envelope"></i> healthcare@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Colombo, Sri lanka - 400104 </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+        
+       
+    </div>
+
+    <div class="credit"> created by <span>CARE COMPASS web team</span> | all rights reserved @2025 </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

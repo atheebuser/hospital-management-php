@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Care Compass Hospital</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/qstyle.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"> <img src="./img/New Arogya Icon Without BC.png" alt=""> CARE COMPASS HOSPITAL</a>
+        <!-- Add this inside the body where you want the search bar -->
+<div class="search-container">
+    <input type="text" id="search" placeholder="Search..." onkeyup="showSuggestions()">
+    <span class="search-icon" onclick="toggleSearch()">🔍</span>
+    <div id="suggestions" class="suggestions-box"></div>
+  </div>
+  
+  <style>
+    .search-container {
+        position: relative;
+        width: 300px;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        border: 2px solid #2ddaf8;
+        border-radius: 25px;
+        padding: 5px;
+    }
+    #search {
+        flex: 1;
+        padding: 8px;
+        border: none;
+        outline: none;
+        transition: width 0.3s ease-in-out;
+    }
+    .search-icon {
+        cursor: pointer;
+        padding: 5px;
+        transition: color 0.3s;
+    }
+    .search-icon:hover {
+        color: blue;
+    }
+    .suggestions-box {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: none;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    .suggestion {
+        padding: 8px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+    }
+    .suggestion:hover {
+        background: #ffffff;
+    }
+    @media (max-width: 600px) {
+        .search-container {
+            width: auto;
+            border: none;
+            padding: 0;
+        }
+        #search {
+            width: 0;
+            padding: 0;
+            border: none;
+            visibility: hidden;
+        }
+        .search-container.active #search {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            visibility: visible;
+        }
+    }
+  </style>
+  
+  <script>
+    const suggestionsList = [
+        { name: "Services", url: "services.html" },
+        { name: "Doctors", url: "doctors.html" },
+        { name: "About Us", url: "aboutus.html" },
+        { name: "Reviews", url: "reviews.html" },
+        { name: "contacus", url: "query.html" },
+        {name:"labservices",url:"labservices.html"},
+        {name:"branches",url:"branches.html"}
+    ];
+  
+    function showSuggestions() {
+        let input = document.getElementById("search").value.toLowerCase();
+        let suggestionsBox = document.getElementById("suggestions");
+        
+        if (input === "") {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+        
+        let filteredSuggestions = suggestionsList.filter(item => 
+            item.name.toLowerCase().includes(input)
+        );
+        
+        if (filteredSuggestions.length === 0) {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+        
+        suggestionsBox.innerHTML = "";
+        filteredSuggestions.forEach(item => {
+            let div = document.createElement("div");
+            div.classList.add("suggestion");
+            div.innerText = item.name;
+            div.onclick = () => window.location.href = item.url;
+            suggestionsBox.appendChild(div);
+        });
+        
+        suggestionsBox.style.display = "block";
+    }
+  
+    function toggleSearch() {
+        document.querySelector(".search-container").classList.toggle("active");
+    }
+  </script>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+
+             <!-- First select menu -->
+        <select id="menu" onchange="navigateToPage('menu')">
+            <option value="services.html">Services</option>
+            <option value="services.html">Our Services</option>
+            <option value="labservices.html">Lab Services</option>
+            <option value="branches.html">Branches</option>
+        </select>
+    
+            
+            
+            <a href="Doctors.html">Doctors</a>
+            <a href="Aboutus.html">About</a>
+            <a href="Review.html">Review</a>
+
+            <!-- Second select menu -->
+        <select id="menuu" onchange="navigateToPage('menuu')">
+            <option value="login.php">Login Option</option>
+            <option value="login.php">Login</option>
+            <option value="signupp.php">SignUp</option>
+        </select>
+
+            
+            <a href="#"><b>Contact Us</b></a>
+            
+        </nav>
+        <script>
+            function navigateToPage(menuId) {
+                var select = document.getElementById(menuId);
+                var selectedValue = select.value;
+                if (selectedValue) {
+                    window.location.href = selectedValue;
+                }
+            }
+        </script>
+    </header>
+
+    <div class="container"><br><br><br><br><br><br><br><br><br><br>
+        <h2>Inquire Now</h2><br><br><br>
+        <p>Please feel free to contact our friendly staff for any medical inquiries or appointment bookings.</p><br><br><br>
+
+        <h3>📍 Our Contact Details</h3><br><br>
+        <ul>
+            <li><strong>Address:</strong> Care Compass Hospital, Main Street, Kandy City, Sri Lanka</li>
+            <li><strong>Phone:</strong> +94 71 123 4567 / +94 81 765 4321</li>
+            <li><strong>Email:</strong> support@carecompasshospital.com</li>
+            <li><strong>Website:</strong> <a href="#">www.carecompasshospital.com</a></li>
+        </ul><br><br><br>
+        <h3>🕒 Operating Hours</h3>
+        <ul>
+            <li>Monday – Friday: 8:00 AM – 8:00 PM</li>
+            <li>Saturday: 9:00 AM – 5:00 PM</li>
+            <li>Sunday & Public Holidays: Closed</li>
+        </ul><br><br>
+        <h3>🚑 Emergency Services Available 24/7</h3><br><br><br>
+
+        <h3>📍 Find Us on Google Maps</h3><br>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.857227721679!2d80.63372821584796!3d7.290571895513634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae368f8d96c3c5b%3A0xe8f206e3b5e5f2b6!2sKandy%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1647418418189!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe><br><br><br>
+
+        <h3>💬 Frequently Asked Questions (FAQ)</h3><br>
+        <h4>1. How do I book an appointment?</h4>
+        <p>You can book an appointment by login into our online portal or click below link! </p>
+        <p> <a href="login.php" class="btn"> Make Appointment<span class="fas fa-chevron-right"></span> </a> </p><br><br><br>
+
+        <h4>2. What should I bring for my first visit?</h4><br>
+        <ul>
+            <li>Valid ID or passport</li>
+            <li>Previous medical records</li>
+            <li>Health insurance details (if applicable)</li>
+        </ul><br><br>
+
+        <h4>3. Does the hospital accept health insurance?</h4><br>
+        <p>Yes, we accept most major insurance plans. Contact our billing department for details.</p><br>
+
+        <h3>📧 Get in Touch</h3><br><br>
+        <form method="post" action="queries.php" onsubmit="return validateForm(event)">
+            <input type="text" name="subject" placeholder="Subject" required>
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="phonenumber" placeholder="Your Contact Number" required>
+            <input type="email" name="email" placeholder="Your Email Address" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit" class="submit-btn">SUBMIT NOW</button>
+        </form>
+    </div><br><br><br><br>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            let name = document.getElementsByName("name")[0].value;
+            let contact = document.getElementsByName("phonenumber")[0].value;
+            let email = document.getElementsByName("email")[0].value;
+            let message = document.getElementsByName("message")[0].value;
+
+            if (name === "" || contact === "" || email === "" || message === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            if (!/^[0-9]+$/.test(contact)) {
+                alert("Please enter a valid contact number");
+                return false;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+            alert("Form submitted successfully!");
+            document.querySelector("form").submit();
+        }
+    </script>
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> services </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> doctors </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> about </a>
+             <a href="#"> <i class="fas fa-chevron-right"></i> review </a>
+         
+        </div>
+
+        <div class="box">
+            <h3>our services</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> dental care </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> message therapy </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> cardioloty </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> diagnosis </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> ambulance service </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-envelope"></i> Arogya@gmail.com </a>
+            <a href="#"> <i class="fas fa-envelope"></i> healthcare@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Colombo, Sri lanka - 400104 </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>CARE COMPASS web team</span> | all rights reserved @2025 </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="js/qscript.js"></script>
+
+</body>
+</html>

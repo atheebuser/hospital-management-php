@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARE COMPASS HOSPITAL </title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+ 
+    <a href="#" class="logo"> <img src="./img/New Arogya Icon Without BC.png" alt=""> CARE COMPASS HOSPITAL</a>
+
+
+   <!--  search bar -->
+<div class="search-container">
+  <input type="text" id="search" placeholder="Search..." onkeyup="showSuggestions()">
+  <span class="search-icon" onclick="toggleSearch()">🔍</span>
+  <div id="suggestions" class="suggestions-box"></div>
+</div>
+
+<style>
+  .search-container {
+      position: relative;
+      width: 300px;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      border: 2px solid #2ddaf8;
+      border-radius: 25px;
+      padding: 5px;
+  }
+  #search {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+      transition: width 0.3s ease-in-out;
+  }
+  .search-icon {
+      cursor: pointer;
+      padding: 5px;
+      transition: color 0.3s;
+  }
+  .search-icon:hover {
+      color: blue;
+  }
+  .suggestions-box {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: none;
+      max-height: 150px;
+      overflow-y: auto;
+  }
+  .suggestion {
+      padding: 8px;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+  }
+  .suggestion:hover {
+      background: #ffffff;
+  }
+  @media (max-width: 600px) {
+      .search-container {
+          width: auto;
+          border: none;
+          padding: 0;
+      }
+      #search {
+          width: 0;
+          padding: 0;
+          border: none;
+          visibility: hidden;
+      }
+      .search-container.active #search {
+          width: 200px;
+          padding: 8px;
+          border: 1px solid #ccc;
+          visibility: visible;
+      }
+  }
+</style>
+
+<script>
+  const suggestionsList = [
+      { name: "Services", url: "services.html" },
+      { name: "Doctors", url: "doctors.html" },
+      { name: "About Us", url: "aboutus.html" },
+      { name: "Reviews", url: "reviews.html" },
+      { name: "contacus", url: "query.html" },
+      { name: "labservices", url: "labservices.html" },
+      { name: "branches", url: "branches.html" }
+  ];
+
+  function showSuggestions() {
+      let input = document.getElementById("search").value.toLowerCase();
+      let suggestionsBox = document.getElementById("suggestions");
+      
+      if (input === "") {
+          suggestionsBox.style.display = "none";
+          return;
+      }
+      
+      let filteredSuggestions = suggestionsList.filter(item => 
+          item.name.toLowerCase().includes(input)
+      );
+      
+      if (filteredSuggestions.length === 0) {
+          suggestionsBox.style.display = "none";
+          return;
+      }
+      
+      suggestionsBox.innerHTML = "";
+      filteredSuggestions.forEach(item => {
+          let div = document.createElement("div");
+          div.classList.add("suggestion");
+          div.innerText = item.name;
+          div.onclick = () => window.location.href = item.url;
+          suggestionsBox.appendChild(div);
+      });
+      
+      suggestionsBox.style.display = "block";
+  }
+
+  function toggleSearch() {
+      document.querySelector(".search-container").classList.toggle("active");
+  }
+</script>
+
+
+
+
+    <nav class="navbar">
+      
+            
+        <a href="#"><b>Home</b></a>
+         <!-- First select menu -->
+         <select id="menu" onchange="navigateToPage('menu')">
+          <option value="services.html">Services</option>
+          <option value="services.html">Our Services</option>
+          <option value="labservices.html">Lab Services</option>
+          <option value="branches.html">Our Branches</option>
+      </select>
+      
+      
+        <a href="Doctors.html">doctors</a>
+        <a href="Aboutus.html">about</a>
+        <a href="review.html">review</a>
+
+         <!-- Second select menu -->
+         <select id="menuu" onchange="navigateToPage('menuu')">
+          <option value="login.php">Login Option</option>
+          <option value="login.php">Login</option>
+          <option value="signupp.php">SignUp</option>
+      </select>
+      
+      
+        <a href="query.html">ContactUs</a>
+        </nav>
+        <script>
+          function navigateToPage(menuId) {
+              var select = document.getElementById(menuId);
+              var selectedValue = select.value;
+              if (selectedValue) {
+                  window.location.href = selectedValue;
+              }
+          }
+      </script>
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="img">
+        <img src="img/new3.svg" alt="">
+    </div>
+
+    <div class="content">
+        <h3>Healing hands, caring hearts</h3>
+        <p><b>Care Compass Hospital </b> is the most accredited hospital in the Sri Lankan healthcare sector. Since 2002, Care Compass has revolutionized the healthcare industry through infrastructure development and advancement of products and services, with a view to deliver healthcare that is on par with global medical standards.
+        </p>
+        <a href="login.php" class="btn"> Make Appointment<span class="fas fa-chevron-right"></span> </a>
+        <a href="query.html" class="btn"> Emergency +94-0772034717<span class="fas fa-chevron-right"></span> </a>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- icons section starts  -->
+
+<section class="icons-container">
+
+    <div class="icons">
+        <i class="fas fa-user-md"></i>
+        <h3>50+</h3>
+        <p>doctors at work</p>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-users"></i>
+        <h3>1000+</h3>
+        <p>satisfied patients</p>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-procedures"></i>
+        <h3>300+</h3>
+        <p>bed facility</p>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-hospital"></i>
+        <h3>3+</h3>
+        <p>Island wide branches</p>
+    </div>
+
+</section>
+
+<!-- icons section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <h1 class="heading"> our <span>services</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-notes-medical"></i>
+            <h3>free checkups</h3>
+            <p>A great opportunity to prioritize your health at no cost.</p>
+            <a href="Services.html" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-ambulance"></i>
+            <h3>24/7 ambulance</h3>
+            <p>Ambulance services are available from leading hospitals and private service providers 24/7.</p>
+            <a href="Services.html" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-user-md"></i>
+            <h3>expert doctors</h3>
+            <p>A highly skilled and dedicated medical professional.</p>
+            <a href="Doctors.html" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- services section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>about</span> us </h1>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/new1.svg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>we take care of your healthy life</h3>
+            <p>Our service philosophy is built on the precepts of commitment to clinical protocols, provision of compassionate care and service excellence that transcends the conventional healthcare offer. Recognising that service excellence is dynamic in nature, we continuously seek to enhance our service delivery in a bid to provide you – our customers – with world-class healthcare experiences.</p>
+            <p>This drive for excellence has seen us claim many “firsts” in the industry in both clinical as well non-clinical areas. As a firm believer that excellence in healthcare is a combination of excellence in clinical and non-clinical care,</p>
+            <a href="Aboutus.html" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- doctors section starts  -->
+
+<section class="doctors" id="doctors">
+
+    <h1 class="heading"> our <span>doctors</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="img/doc-1.jpg" alt="">
+            <h3>Dr.Nadeesha Senanayake
+            </h3>
+            <span>General Surgery</span>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="img/doc-2.jpg" alt="">
+            <h3>Dr.Roshan Mendis</h3>
+            <span>Orthopedic Surgery </span>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="img/doc-3.jpg" alt="">
+            <h3>Dr.Harsha Gunaratne
+            </h3>
+            <span>Neurosurgery</span>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        
+        
+
+    </div>
+    <a href="Doctors.html" class="btn"> view all doctors <span class="fas fa-chevron-right"></span> </a>
+
+</section><br><br><br><br><br><br>
+
+<!-- doctors section ends -->
+
+
+
+
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+    
+    <h1 class="heading"> "Our Empowerd  <span>Patients"</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="img/happy.jpg" alt="">
+            <h3>Ishara Fernando
+            </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="text">"From the moment I walked into the clinic, I felt welcomed and cared for. The staff was incredibly friendly, and Dr.Harsha Gunaratne took the time to listen to all my concerns. He explained everything clearly, and I never felt rushed. I truly appreciate the professionalism and warmth of the entire team. Highly recommend!"</p>
+        </div>
+
+        <div class="box">
+            <img src="img/patre.jpg" alt="">
+            <h3>Sanjeewa Bandara</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="text">"I had been struggling with chronic back pain for years, and after visiting Dr.Nadeesha Senanayake, my life has completely changed. She provided a thorough diagnosis and designed a treatment plan that worked wonders. I feel like I have my life back again, and I can finally enjoy daily activities without discomfort. Thank you so much!"</p>
+        </div>
+
+        <div class="box">
+            <img src="img/pat.jpg" alt="">
+            <h3>Piumi Dissanayake</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="text">"Dr.Roshan Mendis and his team were outstanding. He treated me with so much kindness and respect. He explained my condition in a way that was easy to understand and made sure I was comfortable throughout my treatment. I couldn’t have asked for a better experience. Definitely a five-star service!"
+
+            </p>
+        </div>
+
+    </div>
+    <a href="review.html" class="btn view-all-reviews"> view all reviews <span class="fas fa-chevron-right"></span> </a>
+
+</section><br><br>
+
+<!-- review section ends -->
+
+
+
+<!-- feedback section starts  -->
+ <section class="feedcack" id="feedback">
+ <div class="box-container">
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  .container {
+    display: flex;
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .info-section {
+    background-color: #2b94f0;
+    color: white;
+    padding: 30px;
+    flex: 1;
+  }
+  
+  .info-section h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .info-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  
+  .info-item .icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .info-item p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .info-item a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .info-item a:hover {
+    text-decoration: underline;
+  }
+  
+  .form-section {
+    padding: 30px;
+    flex: 1.5;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 20px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #2b94f0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  button:hover {
+    background-color: #3087ca;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .info-section, .form-section {
+      flex: 1;
+    }
+  }
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="info-section">
+      <h2>TELL US YOUR THOUGHT ABOUT OUR SERVICE</h2>
+      <h3>Enhance Your Healthcare Experience</h3>
+      <div class="info-item">
+        <span class="icon">📍</span>
+        <p>Our Locations<br>Kandy, Colombo, Kurunegala</p>
+      </div>
+      <div class="info-item">
+        <span class="icon">📧</span>
+        <p>Reach Us Via Email<br><a href="mailto:info@carecompasshospitals.com">info@carecompasshospitals.com</a></p>
+      </div>
+      <div class="info-item">
+        <span class="icon">📞</span>
+        <p>Call Us Anytime<br>(+94) 123-4567</p>
+      </div>
+    </div>
+    <div class="form-section">
+    <form method="post" action="feedback.php">
+      <div class="form-group">
+  
+        <input type="varchar" name="name"  placeholder="Your Name" required>
+      </div><br>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="int" name="phonenumber" placeholder="Your Phone Number" required>
+      </div><br>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">SEND YOUR FEEDBACK</button>
+    </form>
+    </div>
+  </div>
+  </div>
+</section>
+</body>
+
+<br><br>
+<!-- feedback section ends -->
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="services.html"> <i class="fas fa-chevron-right"></i> services </a>
+            <a href="Doctors.html"> <i class="fas fa-chevron-right"></i> doctors </a>
+            <a href="Aboutus.html"> <i class="fas fa-chevron-right"></i> about </a>
+             <a href="Review.html"> <i class="fas fa-chevron-right"></i> review </a>
+         
+        </div>
+
+        <div class="box">
+            <h3>our services</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> dental care </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> message therapy </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> cardioloty </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> diagnosis </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> ambulance service </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-envelope"></i> Arogya@gmail.com </a>
+            <a href="#"> <i class="fas fa-envelope"></i> healthcare@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Colombo, Sri lanka - 400104 </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+    
+    <div class="credit"> created by <span>CARE COMPASS web team</span> | all rights reserved @2025 </div>
+  
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

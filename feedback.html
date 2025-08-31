@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  .container {
+    display: flex;
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .info-section {
+    background-color: #1e73be;
+    color: white;
+    padding: 30px;
+    flex: 1;
+  }
+  
+  .info-section h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .info-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  
+  .info-item .icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .info-item p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .info-item a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .info-item a:hover {
+    text-decoration: underline;
+  }
+  
+  .form-section {
+    padding: 30px;
+    flex: 1.5;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 20px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #1e73be;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  button:hover {
+    background-color: #155a90;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .info-section, .form-section {
+      flex: 1;
+    }
+  }
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="info-section">
+      <h2>CONNECT WITH US</h2>
+      <h3>Enhance Your Healthcare Experience</h3>
+      <div class="info-item">
+        <span class="icon">📍</span>
+        <p>Our Locations<br>Kandy, Colombo, Kurunegala</p>
+      </div>
+      <div class="info-item">
+        <span class="icon">📧</span>
+        <p>Reach Us Via Email<br><a href="mailto:info@carecompasshospitals.com">info@carecompasshospitals.com</a></p>
+      </div>
+      <div class="info-item">
+        <span class="icon">📞</span>
+        <p>Call Us Anytime<br>(+94) 123-4567</p>
+      </div>
+    </div>
+    <div class="form-section">
+      <form method="post" action="feedback.php">
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+        </div><br>
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phonenumber" placeholder="Your Phone Number" required>
+        </div><br>
+        <textarea name="message" placeholder="Your Message or Query" required></textarea>
+        <button type="submit">SEND YOUR INQUIRY</button>
+    </form>
+    
+    </div>
+  </div>
+  
+</body>
+</html>

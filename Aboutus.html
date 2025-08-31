@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us </title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+ 
+    <a href="#" class="logo"> <img src="./img/New Arogya Icon Without BC.png" alt=""> CARE COMPASS HOSPITAL</a>
+
+    <!--search bar -->
+<div class="search-container">
+    <input type="text" id="search" placeholder="Search..." onkeyup="showSuggestions()">
+    <span class="search-icon" onclick="toggleSearch()">🔍</span>
+    <div id="suggestions" class="suggestions-box"></div>
+  </div>
+  
+  <style>
+    .search-container {
+        position: relative;
+        width: 300px;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        border: 2px solid #2ddaf8;
+        border-radius: 25px;
+        padding: 5px;
+    }
+    #search {
+        flex: 1;
+        padding: 8px;
+        border: none;
+        outline: none;
+        transition: width 0.3s ease-in-out;
+    }
+    .search-icon {
+        cursor: pointer;
+        padding: 5px;
+        transition: color 0.3s;
+    }
+    .search-icon:hover {
+        color: blue;
+    }
+    .suggestions-box {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: none;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    .suggestion {
+        padding: 8px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+    }
+    .suggestion:hover {
+        background: #ffffff;
+    }
+    @media (max-width: 600px) {
+        .search-container {
+            width: auto;
+            border: none;
+            padding: 0;
+        }
+        #search {
+            width: 0;
+            padding: 0;
+            border: none;
+            visibility: hidden;
+        }
+        .search-container.active #search {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            visibility: visible;
+        }
+    }
+  </style>
+  
+  <script>
+    const suggestionsList = [
+        { name: "Services", url: "services.html" },
+        { name: "Doctors", url: "doctors.html" },
+        { name: "About Us", url: "aboutus.html" },
+        { name: "Reviews", url: "reviews.html" },
+        { name: "contacus", url: "query.html" },
+        {name: "labservices", url:"labservices.html"},
+        {name: "branches", url:"branches.html"}
+    ];
+  
+    function showSuggestions() {
+        let input = document.getElementById("search").value.toLowerCase();
+        let suggestionsBox = document.getElementById("suggestions");
+        
+        if (input === "") {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+        
+        let filteredSuggestions = suggestionsList.filter(item => 
+            item.name.toLowerCase().includes(input)
+        );
+        
+        if (filteredSuggestions.length === 0) {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+        
+        suggestionsBox.innerHTML = "";
+        filteredSuggestions.forEach(item => {
+            let div = document.createElement("div");
+            div.classList.add("suggestion");
+            div.innerText = item.name;
+            div.onclick = () => window.location.href = item.url;
+            suggestionsBox.appendChild(div);
+        });
+        
+        suggestionsBox.style.display = "block";
+    }
+  
+    function toggleSearch() {
+        document.querySelector(".search-container").classList.toggle("active");
+    }
+  </script>
+
+  <!-- search end-->
+
+    <nav class="navbar">
+        <a href="index.html">home</a>
+         <!-- First select menu -->
+         <select id="menu" onchange="navigateToPage('menu')">
+            <option value="services.html">Services</option>
+            <option value="services.html">Our Services</option>
+            <option value="labservices.html">Lab Services</option>
+            <option value="branches.html">Branches</option>
+        </select>
+        
+        
+        <a href="Doctors.html">doctors</a>
+        <a href="#"><b>About</b></a>
+        <a href="review.html">review</a>
+        
+    
+            <!-- Second select menu -->
+        <select id="menuu" onchange="navigateToPage('menuu')">
+            <option value="login.php">Login Option</option>
+            <option value="login.php">Login</option>
+            <option value="signupp.php">SignUp</option>
+        </select>
+          
+          
+            <a href="query.html">ContactUs</a>
+        
+    </nav>
+    <script>
+        function navigateToPage(menuId) {
+            var select = document.getElementById(menuId);
+            var selectedValue = select.value;
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        }
+    </script>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+
+  
+
+<!-- about section starts  -->
+
+<section class="about" id="about"><br><br><br><br><br><br><br><br>
+
+    <h1 class="heading"> <span>about</span> us </h1><br><br><br><br>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/now7.svg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Our History</h3>
+            <p>CARE COMPASS Hospitals Corporation PLC commenced operations in Sri Lanka on 7th June 2002, under the brand name of Apollo Hospitals, a part of the chain of Apollo Hospitals founded by the renown Dr. Pratap C. Reddy in India. As the only purpose built private hospital of its kind in Sri Lanka, Apollo Colombo revolutionised Sri Lanka’s healthcare service, and today under the brand Lanka Hospitals, we continue to dominate and lead the healthcare sector. Ours is still considered to be the best health care facility in the country.
+
+                In 2012, we celebrated a decade of excellence in healthcare. Over the past decade, Care Compass Hospitals has revolutionized the healthcare industry in Sri Lanka through infrastructure development and advancement of its’ product and services, through sizeable investments, with a view to deliver healthcare that is on par with global developments in medical technology. We also play a critical role in the nation’s strategy to provide to provide world-class medical care whilst balancing the equation of affordability and accessibility for all Sri Lankans.</p>
+        </div>
+
+    </div>
+
+    
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/now1.svg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Our service philosophy</h3>
+            <p>Our service philosophy is built on the precepts of commitment to clinical protocols, provision of compassionate care and service excellence that transcends the conventional healthcare offer. Recognising that service excellence is dynamic in nature, we continuously seek to enhance our service delivery in a bid to provide you – our customers – with world-class healthcare experiences.
+
+                This drive for excellence has seen us claim many “firsts” in the industry in both clinical as well non-clinical areas. As a firm believer that excellence in healthcare is a combination of excellence in clinical and non-clinical care, Lanka Hospitals has strived at every opportunity to up its game across the service continuum. Whilst our clinical excellence is driven by international alliances with some of the most reputed global healthcare providers in securing knowledge transfer and sharing of best practices, our excellence in non-clinical care stems from a meticulous drive for quality and continuous improvement.</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/now0.svg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Our facilities & services</h3>
+            <p>CARE COMPASS Hospitals is a 350-bed multi-specialty tertiary care hospital spread over 350,000 square feet with 7 acres of beautifully landscaped garden. It offers state of the art features that is complemented by cutting edge technology and is staffed by a well-experienced and trained team. We provide a complete range of the latest diagnostic and high-end medical technology. Our 11-storey structure is complete with a helipad and is the only private medical facility in Sri Lanka equipped for air-ambulance services.
+
+                We persist towards delivering excellence and dependable healthcare. The Hospital employs a multi-pronged strategy aimed at realizing four core pillars; best medical care, best customer care, process enhancements across functions, and affordability aimed at accelerated our journey towards becoming a hospital and a corporate that is truly world-class.</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="img">
+            <img src="img/now12.svg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Vision Statement</h3>
+            <p>“To be the foremost and preferred Private Healthcare Facility in the Country, which will serve the Nation and her People to build a healthier community.”</p>
+            <h3>Our Promise</h3>
+            <p>“We believe that every person has the right to be treated with utmost respect and consideration Therefore at Lanka Hospitals we care about our patients We care about their families who are anxious and concerned. We care about our colleagues and how we as a team provide the best care to our patients. Because we care, we will be sincere, compassionate and sensitive to make a difference in the lives we touch!</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> services </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> doctors </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> about </a>
+             <a href="#"> <i class="fas fa-chevron-right"></i> review </a>
+         
+        </div>
+
+        <div class="box">
+            <h3>our services</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i> dental care </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> message therapy </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> cardioloty </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> diagnosis </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> ambulance service </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-phone"></i> +110xxxxxxx </a>
+            <a href="#"> <i class="fas fa-envelope"></i> Arogya@gmail.com </a>
+            <a href="#"> <i class="fas fa-envelope"></i> healthcare@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Colombo, Sri lanka - 400104 </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>CARE COMPASS web team</span> | all rights reserved @2022 </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
